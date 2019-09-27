@@ -11,11 +11,28 @@
             var bcd= dec2bin(number)
             document.getElementById("binary_output").innerHTML=bcd
         }
+        
         function dec2bin(decimal){
             //substitute a non-algorithmic solution
             //for the short term
             var binary_numbers = ['0000','0001','0010','0011','0100','0101','0110','0111','1000','1001']
             return (binary_numbers[decimal])
+        }
+        
+        function dec2bin2(decimal){
+            var quotient = decimal
+            var output = ''
+            while (quotient > 0){
+                //the % operator is "divide and report remainder"
+                remainder = quotient % 2
+                if (remainder == 1)
+                    {output = '1' + ouput}
+                else
+                    {output = '0' + output}
+                quotient = Math.floor(x/2)
+            }
+            while (output.length<4) {output = '0'+ output} 
+            return (output)
         }
     </script>
     </style>
