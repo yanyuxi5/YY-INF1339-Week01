@@ -23,40 +23,38 @@
         }
         
         function bin2ssd(binary){
-            //convert the four bit input string into w, x, y, z varaibles
+            //convert
             var w = false
             var x = false
             var y = false
             var z = false
-            if (binary[0])=='1'){w = true}
-            if (binary[1])=='1'){x = true}
-            if (binary[2])=='1'){y = true}
-            if (binary[3])=='1'){z = true}
+            if (binary[0]=='1'){w = true}
+            if (binary[1]=='1'){x = true}
+            if (binary[2]=='1'){y = true}
+            if (binary[3]=='1'){z = true}
             
-            //"compute" the value of logical expression for each segment
-            var a = !w&x&z || w&!x&!y ||!x&!y&!z || !w&y
-            var b = false
-            var c = false
-            var d = false
-            var e = false
-            var f = false
-            var g = false
+            //"compute"
+            var a = !w&x&z || w&!x&!y || !x&!y&!z || !w&y
+            var b = !w&!x || !w&x&!y&!z || !w&x&y&z || w&!x&!y
+            var c = !w&!y || !w&!x&y&z || !w&x&y || w&!x&!y
+            var d = !w&!x&!y&!z || !w&x&!y&z || !w&!x&y || !w&x&y&!z || w&!x&!y
+            var e = !w&!x&!z || !w&x&y&!z || w&!x&!y&!z
+            var f = !w&!x&!y&!z || !w&x&!y || !w&x&y&!z || w&!x&!y
+            var g = !w&!x&y || !w&x&!y || !w&x&y&!z || w&!x&!y
             
-            //assemble and return the output
-            //we will build up the output string element by element
+            //assemble
+            // we will build up the output string
             var output = ''
-            if (a) {output = output + '1'} else {output = output + '0'}
+            if (a) {output = output + '1'} else {output = output + '0'} 
             if (b) {output = output + '1'} else {output = output + '0'}
             if (c) {output = output + '1'} else {output = output + '0'}
             if (d) {output = output + '1'} else {output = output + '0'}
             if (e) {output = output + '1'} else {output = output + '0'}
             if (f) {output = output + '1'} else {output = output + '0'}
             if (g) {output = output + '1'} else {output = output + '0'}
+            
             return (output)
             
-        }
-        
-        function illuminate(){
             
             
         }
